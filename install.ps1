@@ -69,7 +69,8 @@ $files = @(
     @{ Url = "https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Overhear.user.js"; Path = "$base\Overhear.user.js" },
     @{ Url = "https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/README.md"; Path = "$base\README.md" },
     @{ Url = "https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Server/overhear_server.py"; Path = "$base\Server\overhear_server.py" },
-    @{ Url = "https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Server/requirements.txt"; Path = "$base\Server\requirements.txt" }
+    @{ Url = "https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Server/requirements.txt"; Path = "$base\Server\requirements.txt" },
+    @{ Url = "https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Server/Stop.bat"; Path = "$base\Server\Stop.bat" }
 )
 
 [Console]::CursorVisible = $false
@@ -124,6 +125,8 @@ Write-Host "  3. Save it."
 Write-Host ""
 Write-Host "Starting the Overhear server now." -ForegroundColor Cyan
 Write-Host "Keep this window open while you use Overhear. Closing it stops the server." -ForegroundColor Cyan
+Write-Host "You will be asked to enable it for this time only or forever." -ForegroundColor Cyan
+Write-Host "To stop it, run: $base\Server\Stop.bat" -ForegroundColor Cyan
 Write-Host ""
 
 Set-Location "$base\Server"
