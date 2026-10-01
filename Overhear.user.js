@@ -1,8 +1,11 @@
 // ==UserScript==
-// @name         Music Finder
+// @name         Overhear
 // @namespace    itzmeshadow999
-// @version      1.8.0
+// @version      1.2
 // @description  Identify music playing in videos on YouTube, Instagram, X, Reddit and any other website, then copy a yt-dlp download command. UI adopts each site's own CSS.
+// @icon         https://iili.io/nc2jxs9.md.png
+// @updateURL    https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Overhear.user.js
+// @downloadURL  https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Overhear.user.js
 // @match        *://*/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
