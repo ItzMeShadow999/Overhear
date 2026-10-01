@@ -93,6 +93,16 @@ python Server/overhear_server.py --reset
 
 If you move the Overhear folder, run `--reset` and choose "forever" again so the startup entry points to the new location.
 
+## Restarting the server
+
+If you installed with the quick install command, open PowerShell and run:
+
+```
+& "$env:USERPROFILE\Overhear\Server\Stop.bat"; Start-Sleep 1; Set-Location "$env:USERPROFILE\Overhear\Server"; python overhear_server.py --no-prompt
+```
+
+This stops the running server and starts it again without asking the enable question. Keep the window open while you use Overhear. If you set it up manually, change the path to wherever your `Server` folder is.
+
 ## Usage
 
 1. Open a page with a playing video.
