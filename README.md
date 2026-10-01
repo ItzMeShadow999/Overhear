@@ -47,7 +47,19 @@ Overhear/
 - A userscript manager such as Tampermonkey or Violentmonkey
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) (only if you want to use the generated download command)
 
+## Quick install
+
+Open PowerShell and run:
+
+```
+irm https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/install.ps1 | iex
+```
+
+This downloads all the project files, installs the Python dependencies, and starts the server. Keep the window open while you use Overhear, closing it stops the server. You still need to load `Overhear.user.js` into your userscript manager, the script tells you where it saved the file.
+
 ## Setup
+
+To set it up manually instead:
 
 1. Install the dependencies:
 
