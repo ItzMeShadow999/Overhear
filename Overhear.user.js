@@ -7,6 +7,10 @@
 // @updateURL    https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Overhear.user.js
 // @downloadURL  https://raw.githubusercontent.com/ItzMeShadow999/Overhear/main/Overhear.user.js
 // @match        *://*/*
+// @exclude      *://discord.com/*
+// @exclude      *://*.discord.com/*
+// @exclude      *://discordapp.com/*
+// @exclude      *://*.discordapp.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @grant        GM_setClipboard
@@ -17,6 +21,8 @@
 
 (() => {
   'use strict';
+
+  if (/(^|\.)(discord|discordapp)\.com$/.test(location.hostname)) return;
 
   if (window !== window.top && (innerWidth < 320 || innerHeight < 180)) return;
   if (!document.body) return;
