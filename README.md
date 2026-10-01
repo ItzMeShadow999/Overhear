@@ -26,6 +26,7 @@ It is made up of these files:
 - [`Overhear.user.js`](https://github.com/ItzMeShadow999/Overhear/blob/main/Overhear.user.js): a userscript that records audio from the video and shows the result card.
 - [`Server/overhear_server.py`](https://github.com/ItzMeShadow999/Overhear/blob/main/Server/overhear_server.py): a small local Flask server that identifies the audio using [shazamio](https://github.com/shazamio/ShazamIO).
 - [`Server/requirements.txt`](https://github.com/ItzMeShadow999/Overhear/blob/main/Server/requirements.txt): Python dependencies for the server.
+- [`Server/Stop.bat`](https://github.com/ItzMeShadow999/Overhear/blob/main/Server/Stop.bat): stops the running server.
 
 Audio is only sent to the server running on your own machine (`127.0.0.1`).
 
@@ -37,7 +38,8 @@ Overhear/
 ├── README.md
 └── Server/
     ├── overhear_server.py
-    └── requirements.txt
+    ├── requirements.txt
+    └── Stop.bat
 ```
 
 ## Requirements
@@ -75,9 +77,21 @@ To set it up manually instead:
 
    You can check it is running by opening `http://127.0.0.1:5057/health` in a browser. It should return `{"ok": true}`.
 
+   On start it asks whether to enable the server **for this time only** or **forever**. "Forever" saves `overhear_config.json` next to the server and adds a startup entry, so the server runs silently at every login and does not ask again.
+
 3. Install the userscript by opening [`Overhear.user.js`](https://github.com/ItzMeShadow999/Overhear/raw/main/Overhear.user.js) with your userscript manager, or paste its contents into a new script.
 
 4. Allow the script to connect to `127.0.0.1` when your userscript manager asks.
+
+## Stopping the server
+
+Run `Server\Stop.bat`. It stops whatever is listening on port 5057. If you chose "forever", the server will start again at your next login. To remove the auto-start, run:
+
+```
+python Server/overhear_server.py --reset
+```
+
+If you move the Overhear folder, run `--reset` and choose "forever" again so the startup entry points to the new location.
 
 ## Usage
 
@@ -98,7 +112,7 @@ Edit the constants near the top of `Overhear.user.js`:
 | `RECORD_MS` | `12000` | How long to listen, in milliseconds |
 | `MUSIC_DIR` | `~\Music` | Folder the `yt-dlp` command saves to |
 
-To change the server port, edit the last line of `Server/overhear_server.py` and update `SERVER` and the two `@connect` lines if you use a different host.
+To change the server port, change `PORT` in `Server/overhear_server.py` update `SERVER` and the two `@connect` lines if you use a different host, and change the port in `Server/Stop.bat`.
 
 The generated command looks like this:
 
