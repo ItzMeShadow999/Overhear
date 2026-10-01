@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Overhear
+// @name         Music Finder
 // @namespace    itzmeshadow999
 // @version      1.8.0
-// @description  Identify the music playing in a video on YouTube, Instagram, X, Reddit and other sites, then copy a yt-dlp download command.
+// @description  Identify music playing in videos on YouTube, Instagram, X, Reddit and any other website, then copy a yt-dlp download command. UI adopts each site's own CSS.
 // @match        *://*/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
@@ -20,7 +20,7 @@
 
   const SERVER = 'http://127.0.0.1:5057/identify';
   const RECORD_MS = 12000;
-  const MUSIC_DIR = 'C:\\Users\\user\\Music';
+  const MUSIC_DIR = '~\\Music';
 
   const SIZE = 48;
   const CARD_W = 288;
@@ -67,7 +67,9 @@
       primaryInk: ['--ig-primary-button-text'],
       danger: ['--ig-error-or-destructive'],
     },
+
     x: {},
+
     rd: {
       surface: ['--color-neutral-background'],
       raised: ['--color-secondary-background', '--color-neutral-background-hover'],
@@ -257,10 +259,11 @@
     }
     #mf-card .mf-close:hover { color: var(--mf-glass-ink); background: var(--mf-glass-raised); }
     #mf-card .mf-body > :first-child { padding-right: 24px; }
+    #mf-card .mf-err { display: block; }
     #mf-card .mf-title { font-weight: 650; font-size: 16px; line-height: 22px; letter-spacing: -0.015em; color: var(--mf-glass-ink); }
     #mf-card .mf-artist { color: var(--mf-glass-muted); margin: 2px 0 6px; }
     #mf-card .mf-hint { color: var(--mf-glass-muted); font-size: 12px; margin-bottom: 8px; }
-    #mf-card .mf-err { display: block; color: var(--mf-danger); font-weight: 500; }
+    #mf-card .mf-err { color: var(--mf-danger); font-weight: 500; }
     #mf-card .mf-load { display: flex; align-items: center; gap: 10px; font-weight: 500; }
     #mf-card .mf-dot {
       width: 8px; height: 8px; border-radius: 50%; flex: none;
