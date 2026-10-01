@@ -84,14 +84,14 @@ Edit the constants near the top of `Overhear.user.js`:
 | --- | --- | --- |
 | `SERVER` | `http://127.0.0.1:5057/identify` | Address of the local server |
 | `RECORD_MS` | `12000` | How long to listen, in milliseconds |
-| `MUSIC_DIR` | `C:\Users\user\Music` | Folder the `yt-dlp` command saves to |
+| `MUSIC_DIR` | `~\Music` | Folder the `yt-dlp` command saves to |
 
 To change the server port, edit the last line of `Server/overhear_server.py` and update `SERVER` and the two `@connect` lines if you use a different host.
 
 The generated command looks like this:
 
 ```
-yt-dlp 'ytsearch:Song Title Artist' -x --audio-format mp3 --embed-metadata --embed-thumbnail -o "C:\Users\user\Music\%(title)s.%(ext)s"
+yt-dlp 'ytsearch:Song Title Artist' -x --audio-format mp3 --embed-metadata --embed-thumbnail -o "~\Music\%(title)s.%(ext)s"
 ```
 
 It uses PowerShell style quoting, so adjust `buildCommand` if you use another shell.
